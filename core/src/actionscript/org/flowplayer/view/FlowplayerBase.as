@@ -126,6 +126,7 @@ package org.flowplayer.view {
         internal function set playlistController(control:PlayListController):void {
             _playListController = control;
             addStreamAndConnectionCallbacks();
+			
         }
 
         internal function set fullscreenManager(value:FullscreenManager):void {

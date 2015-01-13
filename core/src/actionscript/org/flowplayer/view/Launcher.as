@@ -108,6 +108,8 @@ package org.flowplayer.view {
                 trace("Launcher added to stage");
                 callAndHandleError(createFlashVarsConfig, PlayerError.INIT_FAILED);
             });
+			
+			
             super("#canvas", this);
         }
 
@@ -135,12 +137,13 @@ package org.flowplayer.view {
 
 			setSize(Arrange.parentWidth, Arrange.parentHeight);
 
-			if (! VersionInfo.commercial) {
-				log.debug("Adding logo to canvas");
-				createLogoForCanvas();
-			}
+			//if (! VersionInfo.commercial) {
+//				log.debug("Adding logo to canvas");
+//				createLogoForCanvas();
+			//}
 
 			log = new Log(this);
+			
 			EventDispatcher.playerId = _config.playerId;
 			
 			log.debug("security sandbox type: " + Security.sandboxType);
@@ -155,8 +158,9 @@ package org.flowplayer.view {
 			log.debug("Creating animation engine");
 			createAnimationEngine(_pluginRegistry);
 			
-			log.debug("creating play button overlay");
-			createPlayButtonOverlay();
+			// No need for a play button in a straight ad server
+			//log.debug("creating play button overlay");
+			//createPlayButtonOverlay();
 
             log.debug("creating Flowplayer API");
             createFlowplayer();
@@ -196,8 +200,8 @@ package org.flowplayer.view {
 				resizeCanvasLogo();
 			}
 			
-			log.debug("creating logo");
-			createLogo();
+			//log.debug("creating logo");
+			//createLogo();
 			
 			contextMenu = new ContextMenuBuilder(_config.playerId, _config.contextMenu).build();
 			
@@ -626,6 +630,7 @@ package org.flowplayer.view {
                     callAndHandleError(initPhase1, PlayerError.INIT_FAILED);
                 }, new ResourceLoaderImpl(null, this), loaderInfo.url, VersionInfo.controlsVersion, VersionInfo.audioVersion);
             }
+			
 		}
 
 		private function createPlayListController():PlayListController {
@@ -734,6 +739,10 @@ package org.flowplayer.view {
 			graphics.beginFill(0, 0);
 			graphics.drawRect(0, 0, Arrange.parentWidth, Arrange.parentHeight);
 			graphics.endFill();
+			
+			//_flowplayer.playlist.onFinish(function(event:ClipEvent):void {
+//            	log.error("Finished ya'll");
+            //});
 
             //#508 disabling the stagevideo screen mask, canvas is visible without it.
             CONFIG::FLASH_10_1 {

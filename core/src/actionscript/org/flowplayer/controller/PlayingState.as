@@ -118,6 +118,7 @@ package org.flowplayer.controller {
 
         private function onFinish(event:ClipEvent):void {
             _inStreamTracker.stop();
+			log.error("playstate on finish");
             removeOneShotClip(event.target as Clip);
         }
 

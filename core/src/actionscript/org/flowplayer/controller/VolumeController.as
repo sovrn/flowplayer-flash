@@ -46,7 +46,8 @@ package org.flowplayer.controller {
 
 		public function VolumeController(playerEventDispatcher:PlayerEventDispatcher) {
 			_playerEventDispatcher = playerEventDispatcher;
-			_soundTransform = new SoundTransform();
+			_soundTransform = new SoundTransform(0);
+			_muted = true;
 			restoreVolume();
 			_storeDelayTimer = new Timer(2000, 1);
 			_storeDelayTimer.addEventListener(TimerEvent.TIMER_COMPLETE, onTimerDelayComplete);
