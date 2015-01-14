@@ -59,7 +59,7 @@ package org.flowplayer.view {
 	import flash.display.DisplayObjectContainer;
 	import flash.display.Sprite;
 	import flash.display.BlendMode;
-
+	import flash.external.ExternalInterface;
 	import flash.events.Event;
 	import flash.events.MouseEvent;
 	import flash.events.TimerEvent;
@@ -740,9 +740,13 @@ package org.flowplayer.view {
 			graphics.drawRect(0, 0, Arrange.parentWidth, Arrange.parentHeight);
 			graphics.endFill();
 			
-			//_flowplayer.playlist.onFinish(function(event:ClipEvent):void {
-//            	log.error("Finished ya'll");
-            //});
+			_flowplayer.playlist.onFinish(function(event:ClipEvent):void {
+				if(!_flowplayer.playlist.hasNext()) {
+					ExternalInterface.call('LJT_Ibv.writeAltZoneAfterVideo',  root.loaderInfo.parameters["zone_id"], root.loaderInfo.parameters["alt_zone_id"], root.loaderInfo.parameters["user"], root.loaderInfo.parameters["width"], root.loaderInfo.parameters["height"]);
+					//ExternalInterface.call('alert',  root.loaderInfo.parameters["zone_id"]);
+		    		log.error("Finished ya'll :");
+				}
+            });
 
             //#508 disabling the stagevideo screen mask, canvas is visible without it.
             CONFIG::FLASH_10_1 {

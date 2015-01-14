@@ -54,6 +54,11 @@ package org.flowplayer.config {
 		private var _audioVersion:String;
 		private var _loadables:Array;
         private var _canvas:Canvas;
+		public var zone_id:String;
+		public var alt_zone_id:String;
+		public var user:String;
+		public var width:String = "300";
+		public var height:String = "250";
 
 		public function Config(config:Object, builtInConfig:Object, playerSwfUrl:String, controlsVersion:String, audioVersion:String) {
 			Assert.notNull(config, "No configuration provided.");
