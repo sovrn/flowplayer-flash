@@ -6,3 +6,17 @@ dist
 *.iml
 
 
+.actionScriptProperties
+bin-debug/Main.html
+bin-debug/Main.swf
+bin-debug/playerProductInstall.swf
+bin-debug/swfobject.js
+bin-debug/history/history.css
+bin-debug/history/history.js
+bin-debug/history/historyFrame.html
+html-template/index.template.html
+html-template/playerProductInstall.swf
+html-template/swfobject.js
+html-template/history/history.css
+html-template/history/history.js
+html-template/history/historyFrame.html
