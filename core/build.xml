@@ -434,7 +434,7 @@
             <echo message="++ Zipping @{zip-name} +++"></echo>
 
             <zip destfile="${dist-dir}/@{zip-name}" update="false">
-                <zipfileset prefix="flowplayer" dir=".">
+                <zipfileset prefix="flowplayer" dir="">
                     <include name="@{license}"/>
                     <!--<include name="flowplayer-${flowplayer-js-version-info}.min.js" />-->
                     <include name="README.txt"/>
@@ -459,11 +459,11 @@
 
     <target name="source-dist" description="prepares the source distribution package">
         <zip zipfile="${dist-dir}/${source-dist-name}">
-            <zipfileset prefix="${source-dist-root-folder}" dir="."
+            <zipfileset prefix="${source-dist-root-folder}" dir=""
                         includes="${src-as}/**/*.as, ${src-as-commercial}/**/*.as, ${src-as-builtin}/**/*.as, ${src-flash}/**/*"/>
-            <zipfileset prefix="${source-dist-root-folder}" dir="." includes="example/**/*"/>
-            <zipfileset prefix="${source-dist-root-folder}" dir="." includes="lib/**/*"/>
-            <zipfileset prefix="${source-dist-root-folder}" dir=".">
+            <zipfileset prefix="${source-dist-root-folder}" dir="" includes="example/**/*"/>
+            <zipfileset prefix="${source-dist-root-folder}" dir="" includes="lib/**/*"/>
+            <zipfileset prefix="${source-dist-root-folder}" dir="">
                 <include name="LICENSE*.txt"/>
                 <include name="README.txt"/>
                 <include name="build.xml"/>
