@@ -221,7 +221,7 @@
                 <arg line="-debug=@{debug}"/>
 
                 <arg line="-frame 'player' org.flowplayer.view.Launcher"/>
-                
+
                 <arg line="-file-specs '${src-as}/org/flowplayer/view/Preloader.as'"/>
                 <arg line="-output '${build-dir}/@{binary}'"/>
 
@@ -564,7 +564,7 @@
 
 	<target name="debug-js">
 		 <get src="http://flowplayer.org/js/tools/tools.flashembed-1.0.4.js" dest="${dist-dir}/flowplayer-debug.js"/>
-		
+
 		<concat destfile="${dist-dir}/flowplayer-debug.js" append="true">
 
 			<fileset dir="${src-js}/flowplayer.js" includes="flowplayer-src.js"/>

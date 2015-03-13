@@ -1,10 +1,10 @@
 .project
 .settings
+.idea
 .as*
 build
 dist
 *.iml
-
 
 .actionScriptProperties
 bin-debug/Main.html
