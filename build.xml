@@ -21,7 +21,7 @@
     <property name="controls-version-info-quoted" value="&quot;&#39;${controls-version-info}&#39;&quot;"/>
     <property name="audio-version-info-quoted" value="&quot;&#39;${audio-version-info}&#39;&quot;"/>
 
-    <property name="src" value="src"/>
+    <property name="src" value="./core/src"/>
     <property name="src-as" value="${src}/actionscript"/>
     <property name="src-flash" value="${src}/flash"/>
     <property name="src-as-commercial" value="${src}/actionscript-commercial"/>
@@ -32,7 +32,7 @@
     <property name="build-dir" value="build"/>
     <property name="dist-dir" value="dist"/>
     <property name="apidoc-dir" value="build/apidoc"/>
-    <property name="lib-dir" value="lib"/>
+    <property name="lib-dir" value="./core/lib"/>
     <property name="locale" value="en_US"/>
 
     <condition property="plugin-skin" value="${controls}" else="modern">
@@ -109,8 +109,12 @@
             <fileset dir="${build-dir}">
                 <include name="*swf"/>
             </fileset>
+            <fileset dir="./core/build">
+                <include name="flowplayer-3*.swf"/>
+                <include name="flowplayer.controls-3*.swf"/>
+            </fileset>
         </copy>
-        <iterate-plugins target="deploy" buildfiles="${jsplugins.buildfiles}" basedirectory="../js-plugins" />
+        <iterate-plugins target="deploy" buildfiles="${jsplugins.buildfiles}" basedirectory="./js-plugins" />
     </target>
 
     <target name="build" description="builds all" depends="dobuild, deploy" />
@@ -139,9 +143,7 @@
     </target>
 
     <target name="compile">
-        <compile-player binary="${player-binary}" commercial="false" free="true" license-lib="${licenselib}"
-                        debug="false"/>
-        <copy file="${build-dir}/${player-binary}" tofile="${build-dir}/${player-binary-versioned}"/>
+
     </target>
 
     <target name="build-debug" description="builds the debug version of the player" depends="prepare">
@@ -166,7 +168,7 @@
             <echo message="building example"/>
             <delete dir="${build-dir}/@{example-dir}"/>
             <copy todir="${build-dir}/@{example-dir}" overwrite="true">
-                <fileset dir="example">
+                <fileset dir="core/example">
                     <include name="*.tmpl"/>
                 </fileset>
                 <mapper type="glob" from="*.tmpl" to="*"/>
@@ -176,7 +178,7 @@
                 </filterset>
             </copy>
             <copy todir="${build-dir}/@{example-dir}">
-                <fileset dir="example">
+                <fileset dir="core/example">
                     <include name="*.js"/>
                     <include name="*.html"/>
                     <include name="*.css"/>
@@ -362,7 +364,7 @@
                 <property name="keyfile" value="${keyfile}"/>
                 <property name="url-file" value="${url-file}"/>
                 <property name="yaml-file" value="${yaml-file}"/>
-                <property name="devkit-dir" value="../${devkit-dir}"/>
+                <property name="devkit-dir" value="${devkit-dir}"/>
                 <property name="js.deploy.dir" value="${js.deploy.dir}"/>
                 <property name="mxmlc-bin" value="${mxmlc-bin}" />
             </subant>
@@ -378,14 +380,14 @@
             <property name="aws-secretKey" value="${aws-secretKey}"/>
             <property name="url-file" value="${url-file}"/>
             <property name="keyfile" value="${keyfile}"/>
-            <property name="devkit-dir" value="../${devkit-dir}"/>
+            <property name="devkit-dir" value="${devkit-dir}"/>
         </ant>
     </target>
 
 
     <target name="release-js-plugin" description="releases one JS plugin, specify the plugin name with -Dplugin=">
-        <ant antfile="build.xml" target="release-remote" dir="../js-plugins/${plugin}">
-            <property name="devkit-dir" value="../${devkit-dir}"/>
+        <ant antfile="build.xml" target="release-remote" dir="./js-plugins/${plugin}">
+            <property name="devkit-dir" value="${devkit-dir}"/>
         </ant>
     </target>
 
@@ -559,7 +561,7 @@
     </target>
 
     <target name="jsplugins">
-        <iterate-plugins target="min" buildfiles="${jsplugins.buildfiles}" basedirectory="../js-plugins"/>
+        <iterate-plugins target="min" buildfiles="${jsplugins.buildfiles}" basedirectory="./js-plugins"/>
     </target>
 
 	<target name="debug-js">

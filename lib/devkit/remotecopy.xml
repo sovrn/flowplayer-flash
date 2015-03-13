@@ -1,7 +1,6 @@
 <project name="Macro for copying files with scp, can be included in different build files">
-
     <path id="classpath-release">
-          <fileset dir="${devkit-dir}/releasejars">
+          <fileset dir="${devkit-dir-controls}/releasejars">
             <include name="*.jar"/>
           </fileset>
      </path>

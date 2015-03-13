@@ -7,7 +7,7 @@
     <!-- filename for the plugin swf -->
     <property name="shortname" value="controls" />
     <property name="basename" value="flowplayer.${shortname}" />
-    <property name="releasedir" value="flowplayer.controls" />
+    <property name="releasedir" value="${build-dir-controls}" />
 
     <!-- location of the skin swd, anc swc -->
     <property name="library-path" value="src/flash/modern" />
@@ -15,8 +15,8 @@
     <property name="extra-sources" value="../../lib/common/src/actionscript" />
 
 
-    <property file="${devkit-dir}/plugin-build.properties" />
-    <import file="${devkit-dir}/plugin-build.xml"/>
+    <property file="${devkit-dir-controls}/plugin-build.properties" />
+    <import file="${devkit-dir-controls}/plugin-build.xml"/>
 
     <property name="plugin-binary" value="${basename}.swf" />
     <property name="plugin-binary-versioned" value="${basename}-${version}.swf" />
@@ -45,7 +45,7 @@
                 <include name="LICENSE.txt" />
                 <include name="README.txt" />
             </zipfileset>
-            <zipfileset prefix="${basename}" dir="${build-dir}">
+            <zipfileset prefix="${basename}" dir="${build-dir-controls}">
                 <include name="${plugin-binary-versioned}" />
                 <include name="flowplayer.controls-skinless-${version}.swf" />
                 <include name="flowplayer.controls-tube-${version}.swf" />

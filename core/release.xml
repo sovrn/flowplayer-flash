@@ -1,8 +1,8 @@
 <project name="Flowplayer release" default="release">
-	<property file="build.properties" />
+	<property file="../build.properties" />
 	<property file="${user.home}/fprelease.properties" />
 	<import file="../lib/devkit/remotecopy.xml"/>
-	<import file="build.xml"/>
+	<import file="../build.xml"/>
 
     <target name="release-core-resources">
         <remotecopy bucketname="flowplayer-releases/flowplayer" keyfile="${keyfile}" pass="${remotepass}" >
