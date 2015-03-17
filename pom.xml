@@ -68,7 +68,7 @@
                                     <type>directory</type>
                                     <mapper>
                                         <type>perm</type>
-                                        <prefix>/var/www/delivery/flowplayer</prefix>
+                                        <prefix>/var/www/flowplayer</prefix>
                                         <user>www-data</user>
                                         <group>www-data</group>
                                     </mapper>
