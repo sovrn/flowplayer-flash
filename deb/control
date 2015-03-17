@@ -1,0 +1,9 @@
+Package: lijit-flowplayer-swf
+Version: [[version]].[[timestamp]]
+Section: Lijit/Misc
+Priority: optional
+Architecture: all
+Essential: no
+Depends:
+Maintainer: Lijit.com Engineering [devel@lijit.com]
+Description: (revision [[buildNumber]]) Lijit.com Flowplayer build
