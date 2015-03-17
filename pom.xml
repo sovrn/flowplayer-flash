@@ -3,6 +3,11 @@
     <artifactId>flowplayer-flash</artifactId>
     <groupId>com.lijit</groupId>
     <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <deploy.directory>/usr/share/lijit-fp-flash</deploy.directory>
+    </properties>
+
     <scm>
         <connection>scm:git:ssh://git@github.com:sovrn/flowplayer-flash.git</connection>
         <developerConnection>scm:git:ssh://git@github.com:sovrn/flowplayer-flash.git</developerConnection>
@@ -60,7 +65,7 @@
                             <goal>jdeb</goal>
                         </goals>
                         <configuration>
-                            <deb>${project.build.directory}/lijit-${project.build.finalName}.${buildNumber}.deb</deb>
+                            <deb>${project.build.directory}/${project.build.finalName}.${buildNumber}.deb</deb>
                             <controlDir>${project.basedir}/deb</controlDir>
                             <dataSet>
                                 <data>
@@ -68,10 +73,16 @@
                                     <type>directory</type>
                                     <mapper>
                                         <type>perm</type>
-                                        <prefix>/var/www/flowplayer</prefix>
+                                        <prefix>${deploy.directory}</prefix>
                                         <user>www-data</user>
                                         <group>www-data</group>
                                     </mapper>
+                                </data>
+                                <data>
+                                    <type>link</type>
+                                    <linkName>/var/www/flowplayer</linkName>
+                                    <linkTarget>${deploy.directory}</linkTarget>
+                                    <symlink>true</symlink>
                                 </data>
                             </dataSet>
                         </configuration>
