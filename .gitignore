@@ -11,12 +11,15 @@ bin-debug/Main.html
 bin-debug/Main.swf
 bin-debug/playerProductInstall.swf
 bin-debug/swfobject.js
+build/content/swf/flowplayer.controls-3.2.15.swf
 build/example
 build/example-free
 build/flow*.swf
 build/flowplayer-3.2.16.swc
 build/flowplayer.swc
 build/flowplayer.swc.cache
+core/build/flowplayer.controls-3.2.15.swf
+core/build/flowplayer.controls.swf
 deployment.log
 dist
 git.diff
@@ -28,4 +31,6 @@ html-template/index.template.html
 html-template/playerProductInstall.swf
 html-template/swfobject.js
 lib/devkit/flowplayer.swc
-target/
+plugins/controls/build/flowplayer.controls-3.2.15.swf
+plugins/controls/build/flowplayer.controls.swf
+target/**

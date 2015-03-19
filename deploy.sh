@@ -11,8 +11,7 @@ fi
 
 host_type=`hostname | awk -F'.' '{print $2}'`
 current_branch=`git rev-parse --abbrev-ref HEAD`
-build_target="flowplayer-ova"
-git_target="flowplayer-ova"
+build_target="lijit-flowplayer-flash"
 build_env="QA"
 servers="NONE"
 restart_cmd="NONE"
@@ -21,7 +20,6 @@ today_is=`date`
 package_type="deb"
 #servers="ad1q.pod1q.lijit.com,ad1q.pod2q.lijit.com"
 servers="ad1q.pod2q.lijit.com,ad2q.pod2q.lijit.com"
-package="lijit-flowplayer-ova"
 
 if [ "$host_type" == "15c" ]; then
 
@@ -89,9 +87,9 @@ else
  fi
 
 echo "Gathering up freshly built debian packages."
-# echo $pass | sudo -S cp -rv target/$package*.deb $deb_repo 
-echo $pass | sudo -S cp -rv target/$package*.deb ../deb_packages 
-cp -v /usr/share/lijit-build/git/deb_packages/$package*.$package_type ~/deployment
+# echo $pass | sudo -S cp -rv target/$build_target*.deb $deb_repo 
+echo $pass | sudo -S cp -rv target/$build_target*.deb ../deb_packages 
+cp -v /usr/share/lijit-build/git/deb_packages/$build_target*.$package_type ~/deployment
  
 echo "Time for deployment:"
 
@@ -102,10 +100,10 @@ else
    echo ------------------------------------------------------------------->>deployment.log
    echo ------- Pre Updated Versions $today_is>>deployment.log
    echo ------------------------------------------------------------------->>deployment.log
-   rcmd -p $pass -c "dpkg -l |grep $package" -s ,$servers |grep $package>>deployment.log
-   rcmd -p $pass -c "sudo dpkg -i ~/deployment/$package*.deb" -s ,$servers
+   rcmd -p $pass -c "dpkg -l |grep $build_target" -s ,$servers |grep $build_target>>deployment.log
+   rcmd -p $pass -c "sudo dpkg -i ~/deployment/$build_target*.deb" -s ,$servers
    echo ------------------------------------------------------------------->>deployment.log
-   echo "The $package ($gitcurrent) package was deployed to $servers">>deployment.log
+   echo "The $build_target ($gitcurrent) package was deployed to $servers">>deployment.log
    echo ------------------------------------------------------------------->>deployment.log 
 fi
 
@@ -120,7 +118,7 @@ fi
 
 hipchat_token="76b0aba2795ee6878a9ee91138dd8e"
 hipchat_user="SCM-BUILD"
-hipchat_message="$package [$current_branch] -- has been deployed to these $build_env servers: $servers - Click here for the diff --> <a href=https://github.com/sovrn/$build_target/compare/$gitsha...$gitcurrent#files_bucket>$gitcurrent</a>"
+hipchat_message="$build_target [$current_branch] -- has been deployed to these $build_env servers: $servers - Click here for the diff --> <a href=https://github.com/sovrn/$build_target/compare/$gitsha...$gitcurrent#files_bucket>$gitcurrent</a>"
 
 if [ "$host_type" == "15c" ]; then
    hipchat_room="144533"
