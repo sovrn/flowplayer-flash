@@ -5,22 +5,11 @@
 
 ## The video player for the web
 
-Flowplayer is an Open Source video player for your website.
-For site owners, developers, hobbyists, businesses and programmers.
-
-This is Flowplayer Flash. Flowplayer 5 for HTML5 will be out soon.
-
-[website](http://flowplayer.org) | [demos](http://flowplayer.org/demos/) | [docs](http://flowplayer.org/documentation/)
-
-## For The Impatient
-
-1. [Download Flowplayer](http://flowplayer.org/download/)
-2. Unzip
-3. Open example/index.html in your Web browser
+This build is forked off of the main Flowplayer project.
 
 ## Building
 
-Follow [these instructions](http://flowplayer.org/documentation/developer/development-environment.html).
+'mvn package' will deploy 'flowplayer-v.v.v' and 'flowplayer.controls-v.v.v' swfs to /build/content/swf.
 
 ## License
 
@@ -35,5 +24,3 @@ does not require any Flowplayer notices or texts and also provides
 some additional features.
 
 Copyright (c) 2012 Flowplayer Ltd
-
-ant deploy
