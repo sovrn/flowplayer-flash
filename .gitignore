@@ -2,9 +2,11 @@
 .settings
 .idea
 .as*
-build
 dist
 *.iml
+build/example
+build/example-free
+build/flow*.swf
 
 .actionScriptProperties
 bin-debug/Main.html
