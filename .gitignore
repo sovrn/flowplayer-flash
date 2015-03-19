@@ -1,4 +1,7 @@
 lib/devkit/flowplayer.swc
+build/flowplayer-3.2.16.swc
+build/flowplayer.swc
+build/flowplayer.swc.cache
 .project
 .settings
 .idea
