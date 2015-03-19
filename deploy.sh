@@ -18,8 +18,9 @@ restart_cmd="NONE"
 rcmd_option=""
 today_is=`date`
 package_type="deb"
+servers="ad1q.pod1q.lijit.com,ad2q.pod2q.lijit.com,ad1q.pod2q.lijit.com,ad2q.pod2q.lijit.com"
 #servers="ad1q.pod1q.lijit.com,ad1q.pod2q.lijit.com"
-servers="ad1q.pod2q.lijit.com,ad2q.pod2q.lijit.com"
+#servers="ad1q.pod2q.lijit.com,ad2q.pod2q.lijit.com"
 
 if [ "$host_type" == "15c" ]; then
 
