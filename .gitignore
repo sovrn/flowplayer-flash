@@ -1,3 +1,4 @@
+lib/devkit/flowplayer.swc
 .project
 .settings
 .idea
@@ -5,8 +6,11 @@
 build
 dist
 *.iml
-
-.actionScriptProperties
+deployment.log
+git.diff
+git.previous
+target/
+.ctionScriptProperties
 bin-debug/Main.html
 bin-debug/Main.swf
 bin-debug/playerProductInstall.swf
