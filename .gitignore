@@ -39,4 +39,10 @@ plugins/controls/build/flowplayer.controls-3.2.15.swf
 plugins/controls/build/flowplayer.controls.swf
 plugins/controls/build/flowplayer.controls.swf
 target/**
-target/flowplayer-flash-1.0-SNAPSHOT.jar
+target/*.jar
+build/content/swf/flowplayer.controls-3.2.15.swf
+core/build/flowplayer.controls-3.2.15.swf
+core/build/flowplayer.controls.swf
+plugins/controls/build/flowplayer.controls-3.2.15.swf
+plugins/controls/build/flowplayer.controls.swf
+target/maven-archiver/pom.properties
