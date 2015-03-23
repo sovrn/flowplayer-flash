@@ -25,7 +25,9 @@ servers="ad1q.pod1q.lijit.com,ad2q.pod1q.lijit.com,ad1q.pod2q.lijit.com,ad2q.pod
 if [ "$host_type" == "15c" ]; then
 
    build_env="PROD"
-   rcmd_option="-m"
+   restart_cmd="NONE"
+   servers="NONE"
+
 fi
 
 if [ $current_branch = $1 ] ; then
