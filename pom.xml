@@ -2,7 +2,7 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>flowplayer-flash</artifactId>
     <groupId>com.lijit</groupId>
-    <version>1.0-SNAPSHOT</version>
+    <version>3.2.16.0</version>
 
     <properties>
         <deploy.directory>/usr/share/lijit-fp-flash</deploy.directory>
