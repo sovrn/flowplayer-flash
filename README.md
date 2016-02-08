@@ -1,6 +1,14 @@
 
 # Flowplayer Flash
 
+The **flowplayer-flash** repo is owned by the AdTech team. Changes to this code may be effected in one of two ways:
+
+1. A JIRA ticket describing the required behavior is created and discussed with the AdTech team lead (or designated delegate). Prioritisation is negotiated with the AdTech Product Owner. This is the preferred approach for larger changes.
+2. A [pull request](https://help.github.com/articles/using-pull-requests/) containing the desired code change is submitted for review and merging by the AdTech team.
+
+Pull requests should be submitted on topic branches named for the JIRA ticket to which the work relates.
+
+===============
 
 ## The video player for the web
 
